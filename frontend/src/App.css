@@ -1,0 +1,447 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  max-width: 100%;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+/* Sidebar (left section) */
+.sidebar {
+  width: 30%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.list-item:hover {
+  background-color: #d9d9d9;
+}
+
+/* Стили для выбранного списка */
+.list-item.selected {
+  background-color: #d0e8f2; /* Светло-голубой цвет */
+  color: #333; /* Темный текст */
+  font-weight: bold;
+  border: 2px solid #007acc;
+}
+
+.list-item.selected button {
+  background-color: #007acc; /* Цвет кнопок выделенного списка */
+  color: #fff; /* Белый текст на кнопках */
+}
+
+.list-item.selected button:hover {
+  background-color: #005f99; /* Более темный цвет при наведении */
+}
+
+.edit-list-name {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.edit-list-name input {
+  width: calc(100% - 100px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-list-name button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.main-content {
+  width: 65%;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.main-content h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+button:active {
+  background-color: #004080;
+}
+
+.item-button {
+  padding: 8px 12px; 
+  font-size: 14px; 
+  border-radius: 5px;
+  border: none; 
+  background-color: #007acc; 
+  color: white; 
+  cursor: pointer; 
+}
+
+.item-button:hover {
+  background-color: #005f99; 
+}
+
+/* Input Fields */
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.2s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0px 0px 5px rgba(0, 122, 204, 0.5);
+}
+
+/* Chart Styling */
+.chart-container {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Settings Icon */
+.settings-icon-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}
+
+.settings-icon {
+  font-size: 24px;
+  color: #666;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.settings-icon:hover {
+  color: #007bff;
+  transform: rotate(90deg);
+}
+
+/* Settings Menu */
+.settings-menu {
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body.dark-mode .settings-menu {
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.settings-menu h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.settings-menu button {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.settings-menu button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode .settings-menu button {
+  background-color: #444;
+}
+
+body.dark-mode .settings-menu button:hover {
+  background-color: #666;
+}
+
+/* Full Width Content */
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1c1c1c;
+  color: #e4e4e4;
+}
+
+body.dark-mode .container {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .sidebar {
+  background-color: #333333;
+  color: #fff;
+}
+
+body.dark-mode .main-content {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+body.dark-mode .list-item {
+  background-color: #444444;
+  color: #fff;
+}
+
+body.dark-mode .list-item-row::before {
+  color: #ffffff; 
+}
+
+body.dark-mode .item-name {
+  color: #ffffff; 
+}
+
+body.dark-mode .item-button {
+  background-color: #444; 
+  color: white; 
+}
+
+body.dark-mode .item-button:hover {
+  background-color: #666; 
+}
+
+body.dark-mode .edit-list-section-title {
+  color: #fff; 
+}
+
+body.dark-mode .list-item.selected {
+  background-color: #0056b3;
+}
+
+body.dark-mode button {
+  background-color: #444;
+  color: white;
+}
+
+body.dark-mode input[type="text"] {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+
+/* Autorization */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+.auth-footer {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+span {
+  font-size: 12px;
+  color: #007bff;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Styles for an item row */
+.list-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px; 
+  font-size: 16px; 
+  position: relative; 
+}
+
+.list-item-row::before {
+  content: "•"; 
+  position: absolute;
+  left: -15px; 
+  color: #333; 
+  font-size: 18px; 
+}
+
+.item-name {
+  flex: 1;
+  text-align: left;
+  font-size: 18px; 
+  color: #333; 
+}
+
+
+
+
+
